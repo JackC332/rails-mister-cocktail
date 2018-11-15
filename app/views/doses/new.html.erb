@@ -1,10 +1,14 @@
 <h1>Add doses!</h1>
 
-
-  <%= simple_form_for([@cocktail, @dose]) do |f| %>
-  <%= f.input :ingredient, collection: Ingredient.list_names,
-    input_html: { multiple: true,
-    include_blank: false } %>
-    <%= f.input :description %>
-  <%= f.submit %>
-  <% end %>
+<div class="container">
+  <h1>Add Doses to <%= @cocktail.name %></h1>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= simple_form_for([@cocktail, @dose]) do |f| %>
+        <%= f.association :ingredient %>
+          <%= f.input :description %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
