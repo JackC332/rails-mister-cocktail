@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show]
+  before_action :set_cocktail, only: [:show, :destroy]
   def index
     @cocktails = Cocktail.all
   end
@@ -20,6 +20,12 @@ class CocktailsController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  def destroy
+    @cocktail.destroy
+    flash[:info] = "Cocktail deleted"
+    redirect_to root_url
   end
 
   private

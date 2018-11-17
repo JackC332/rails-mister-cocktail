@@ -5,7 +5,7 @@
   <div class="cocktail-menu">
     <div id="cocktail-ingredients">
       <% @cocktail.doses.each do |dose| %>
-        <div class="ingredient"><%= dose.ingredient.name%> <span><%= dose.description %></span></div>
+        <div class="ingredient"><span><%= dose.description %></span> <%= dose.ingredient.name%></div>
         <%= link_to "Delete Dose", dose_path(dose), method: :delete  %>
       <% end %>
     </div>
@@ -13,6 +13,5 @@
   </div>
 </div>
 
-
-<%= link_to "Cocktails", cocktails_path %>
+<%= link_to "Go back!", cocktails_path %>
 
